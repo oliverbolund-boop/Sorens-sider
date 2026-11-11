@@ -160,9 +160,6 @@ Component.prototype.render = function () {
 
 {v.isDesktop && (<>
 <nav aria-label="Hovedmenu" style={css("display: flex; align-items: center; gap: 2px")}>
-<a href="#ydelser" onClick={v.nav.ydelser} className="m-link" style={css("padding: 10px 16px; border-radius: 999px; text-decoration: none; font-weight: 500; font-size: 15px; color: #3C4654")}>Ydelser</a>
-<a href="#om" onClick={v.nav.om} className="m-link" style={css("padding: 10px 16px; border-radius: 999px; text-decoration: none; font-weight: 500; font-size: 15px; color: #3C4654")}>Om Søren</a>
-<a href="#spoergsmaal" onClick={v.nav.spoergsmaal} className="m-link" style={css("padding: 10px 16px; border-radius: 999px; text-decoration: none; font-weight: 500; font-size: 15px; color: #3C4654")}>Spørgsmål</a>
 <a href="#kontakt" onClick={v.nav.kontakt} className="m-link" style={css("padding: 10px 16px; border-radius: 999px; text-decoration: none; font-weight: 500; font-size: 15px; color: #3C4654")}>Kontakt</a>
 <a href="tel:+4522216814" className="m-btn" style={css("margin-left: 8px; display: inline-flex; align-items: center; gap: 8px; background: #0D1B2A; color: #ffffff; text-decoration: none; font-weight: 600; font-size: 15px; padding: 12px 20px; border-radius: 999px; min-height: 44px; box-sizing: border-box")}>
 <svg aria-hidden="true" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><path d="M22 16.9v3a2 2 0 0 1-2.2 2 19.8 19.8 0 0 1-8.6-3.1 19.5 19.5 0 0 1-6-6A19.8 19.8 0 0 1 2.1 4.2 2 2 0 0 1 4.1 2h3a2 2 0 0 1 2 1.7c.1.9.4 1.8.7 2.7a2 2 0 0 1-.5 2.1L8 9.8a16 16 0 0 0 6 6l1.3-1.3a2 2 0 0 1 2.1-.5c.9.3 1.8.6 2.7.7a2 2 0 0 1 1.7 2z"/></svg>
@@ -172,20 +169,11 @@ Component.prototype.render = function () {
 </>)}
 
 {v.isCompact && (<>
-<button type="button" onClick={v.toggleMenu} aria-expanded={v.menuExpanded} aria-label="Menu" style={css("display: inline-flex; align-items: center; justify-content: center; width: 46px; height: 46px; border-radius: 999px; border: 0; background: #0D1B2A; color: #ffffff; cursor: pointer")}>
-<svg aria-hidden="true" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round"><path d="M4 8h16M4 16h16"/></svg>
-</button>
+<a href="#kontakt" onClick={v.nav.kontakt} className="m-btn" style={css("display: inline-flex; align-items: center; height: 46px; padding: 0 18px; border-radius: 999px; background: #0D1B2A; color: #ffffff; text-decoration: none; font-weight: 600; font-size: 15px; box-sizing: border-box")}>Kontakt</a>
 </>)}
 </div>
 
-{v.showMobileMenu && (<>
-<nav aria-label="Mobilmenu" style={css("max-width: 1240px; margin: 8px auto 0; background: #ffffff; border: 1px solid #E2E6E0; border-radius: 24px; padding: 8px; display: flex; flex-direction: column; box-shadow: 0 16px 40px rgba(13,27,42,0.10)")}>
-<a href="#ydelser" onClick={v.nav.ydelser} style={css("padding: 14px 16px; border-radius: 16px; text-decoration: none; font-weight: 600; font-size: 18px; color: #0D1B2A")}>Ydelser og priser</a>
-<a href="#om" onClick={v.nav.om} style={css("padding: 14px 16px; border-radius: 16px; text-decoration: none; font-weight: 600; font-size: 18px; color: #0D1B2A")}>Om Søren</a>
-<a href="#spoergsmaal" onClick={v.nav.spoergsmaal} style={css("padding: 14px 16px; border-radius: 16px; text-decoration: none; font-weight: 600; font-size: 18px; color: #0D1B2A")}>Spørgsmål</a>
-<a href="#kontakt" onClick={v.nav.kontakt} style={css("padding: 14px 16px; border-radius: 16px; text-decoration: none; font-weight: 600; font-size: 18px; color: #0D1B2A")}>Kontakt</a>
-</nav>
-</>)}
+
 </header>
 
 {v.isHome && (<>
@@ -208,7 +196,7 @@ IT &amp; hjemmeservice i Kerteminde og omegn
 <a href="tel:+4522216814" className="m-btn" style={css("display: inline-flex; align-items: center; gap: 10px; background: #0D1B2A; color: #ffffff; text-decoration: none; font-weight: 600; font-size: 17px; padding: 16px 24px; border-radius: 999px; min-height: 54px; box-sizing: border-box")}>Ring til mig
 <svg className="m-arrow" aria-hidden="true" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.2" strokeLinecap="round" strokeLinejoin="round"><path d="M5 12h14M13 6l6 6-6 6"/></svg>
 </a>
-<a href="#ydelser" onClick={v.nav.ydelser} className="m-btn" style={css("display: inline-flex; align-items: center; background: #F2F4F1; color: #0D1B2A; text-decoration: none; font-weight: 600; font-size: 17px; padding: 16px 24px; border-radius: 999px; min-height: 54px; box-sizing: border-box")}>Se ydelser</a>
+<a href="#kontakt" onClick={v.nav.kontakt} className="m-btn" style={css("display: inline-flex; align-items: center; background: #F2F4F1; color: #0D1B2A; text-decoration: none; font-weight: 600; font-size: 17px; padding: 16px 24px; border-radius: 999px; min-height: 54px; box-sizing: border-box")}>Bliv ringet op</a>
 </div>
 </div>
 </div>
@@ -228,15 +216,15 @@ IT &amp; hjemmeservice i Kerteminde og omegn
 </div>
 </div>
 
-<a href="#ydelser" onClick={v.showIt} className="m-card" style={css(`grid-column: ${v.sp.small}; background: #0D1B2A; color: #ffffff; border-radius: 28px; padding: 24px; display: flex; flex-direction: column; justify-content: space-between; gap: 28px; text-decoration: none; min-height: 190px; box-sizing: border-box`)}>
-<span style={css("display: flex; justify-content: space-between; align-items: center")}><span style={css("font-size: 14px; font-weight: 600; color: #C6E97A")}>IT-hjælp</span><svg aria-hidden="true" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#C6E97A" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><path d="M7 17L17 7M9 7h8v8"/></svg></span>
+<div style={css(`grid-column: ${v.sp.small}; background: #0D1B2A; color: #ffffff; border-radius: 28px; padding: 24px; display: flex; flex-direction: column; justify-content: space-between; gap: 28px; min-height: 190px; box-sizing: border-box`)}>
+<span style={css("display: flex; justify-content: space-between; align-items: center")}><span style={css("font-size: 14px; font-weight: 600; color: #C6E97A")}>IT-hjælp</span></span>
 <span><span style={css("display: block; font-size: clamp(30px, 3.4vw, 44px); font-weight: 700; letter-spacing: -0.04em; line-height: 1")}>350 kr.</span><span style={css("font-size: 14px; color: #B8C3D3")}>pr. time · inkl. moms</span></span>
-</a>
+</div>
 
-<a href="#ydelser" onClick={v.showHome} className="m-card" style={css(`grid-column: ${v.sp.small}; background: #DDEBC9; color: #0D1B2A; border-radius: 28px; padding: 24px; display: flex; flex-direction: column; justify-content: space-between; gap: 28px; text-decoration: none; min-height: 190px; box-sizing: border-box`)}>
-<span style={css("display: flex; justify-content: space-between; align-items: center")}><span style={css("font-size: 14px; font-weight: 600; color: #2F5715")}>Hjemmeservice</span><svg aria-hidden="true" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#2F5715" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><path d="M7 17L17 7M9 7h8v8"/></svg></span>
+<div style={css(`grid-column: ${v.sp.small}; background: #DDEBC9; color: #0D1B2A; border-radius: 28px; padding: 24px; display: flex; flex-direction: column; justify-content: space-between; gap: 28px; min-height: 190px; box-sizing: border-box`)}>
+<span style={css("display: flex; justify-content: space-between; align-items: center")}><span style={css("font-size: 14px; font-weight: 600; color: #2F5715")}>Hjemmeservice</span></span>
 <span><span style={css("display: block; font-size: clamp(30px, 3.4vw, 44px); font-weight: 700; letter-spacing: -0.04em; line-height: 1")}>500 kr.</span><span style={css("font-size: 14px; color: #3D4A33")}>pr. time · inkl. moms</span></span>
-</a>
+</div>
 
 <div style={css(`grid-column: ${v.sp.small}; background: #ffffff; border-radius: 28px; padding: 24px; display: flex; flex-direction: column; justify-content: space-between; gap: 28px; min-height: 190px; box-sizing: border-box`)}>
 <span style={css("width: 44px; height: 44px; border-radius: 14px; background: #EAF0F7; color: #1E3A64; display: flex; align-items: center; justify-content: center")}><svg aria-hidden="true" width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"/><path d="M9.5 9a2.5 2.5 0 1 1 3.5 2.3c-.6.3-1 .8-1 1.4"/><path d="M12 15h.01"/></svg></span>
@@ -259,105 +247,6 @@ IT &amp; hjemmeservice i Kerteminde og omegn
 </React.Fragment>))}
 </div>
 </div>
-
-{/* YDELSER */}
-<section id="ydelser" style={css("padding: 104px 16px 88px")}>
-<div style={css("max-width: 1240px; margin: 0 auto")}>
-<div style={css("display: flex; flex-wrap: wrap; gap: 24px 48px; align-items: flex-end; justify-content: space-between; margin-bottom: 40px")}>
-<div style={css("max-width: 720px")}>
-<p style={css("margin: 0 0 14px; font-size: 14px; font-weight: 600; color: #3F6E1C")}>Ydelser og priser</p>
-<h2 style={css("margin: 0; font-size: clamp(34px, 4.6vw, 60px); line-height: 1.02; font-weight: 700; letter-spacing: -0.045em; color: #0D1B2A")}>Hvad kan jeg hjælpe dig med?</h2>
-</div>
-<div style={css("display: inline-flex; background: #ffffff; border: 1px solid #E2E6E0; border-radius: 999px; padding: 6px; gap: 4px")}>
-<button type="button" onClick={v.showIt} aria-pressed={v.tabIt.pressed} className="m-btn" style={css(v.tabIt.style)}>IT-hjælp</button>
-<button type="button" onClick={v.showHome} aria-pressed={v.tabHome.pressed} className="m-btn" style={css(v.tabHome.style)}>Hjemmeservice</button>
-</div>
-</div>
-
-<div style={css("display: grid; grid-template-columns: repeat(12, minmax(0, 1fr)); gap: 14px")}>
-<div style={css(`grid-column: ${v.sp.panel}; background: ${v.group.bg}; color: ${v.group.ink}; border-radius: 32px; padding: 32px; display: flex; flex-direction: column; justify-content: space-between; gap: 40px; min-height: 360px; box-sizing: border-box; position: relative; overflow: hidden`)}>
-<svg aria-hidden="true" viewBox="0 0 400 160" preserveAspectRatio="none" style={css("position: absolute; left: 0; right: 0; bottom: 0; width: 100%; height: 120px")}>
-<path d="M0 90 C 110 50, 250 80, 400 30 L400 160 L0 160 Z" fill={v.group.wave}/>
-<path d="M0 110 C 120 72, 260 100, 400 52" stroke={v.group.line} strokeWidth="6" fill="none"/>
-</svg>
-<div style={css("position: relative")}>
-<p style={css(`margin: 0 0 10px; font-size: 14px; font-weight: 600; color: ${v.group.accent}`)}>{v.group.label}</p>
-<h3 style={css("margin: 0; font-size: 30px; line-height: 1.1; font-weight: 700; letter-spacing: -0.035em")}>{v.group.title}</h3>
-</div>
-<div style={css("position: relative; padding-bottom: 72px")}>
-<div style={css("display: flex; align-items: baseline; gap: 8px")}><span style={css("font-size: 64px; font-weight: 700; letter-spacing: -0.05em; line-height: 1")}>{v.group.price}</span><span style={css("font-size: 16px; opacity: 0.85")}>pr. time</span></div>
-<p style={css("margin: 10px 0 0; font-size: 14px; opacity: 0.85")}>Privat: inkl. moms · Erhverv: + moms</p>
-{v.group.hasNote && (<><p style={css("margin: 2px 0 0; font-size: 14px; opacity: 0.85")}>{v.group.note}</p></>)}
-</div>
-</div>
-
-<div style={css(`grid-column: ${v.sp.items}; display: grid; grid-template-columns: repeat(auto-fit, minmax(240px, 1fr)); gap: 14px`)}>
-{v.group.items.map((s, i_) => (<React.Fragment key={i_}>
-<article className="m-card" style={css("background: #ffffff; border-radius: 28px; padding: 28px; display: flex; flex-direction: column; gap: 14px")}>
-<div style={css(`width: 48px; height: 48px; border-radius: 16px; background: ${v.group.tint}; color: ${v.group.tintInk}; display: flex; align-items: center; justify-content: center`)}>
-{s.isWifi && (<><svg aria-hidden="true" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.9" strokeLinecap="round" strokeLinejoin="round"><rect x="3" y="4" width="18" height="12" rx="2"/><path d="M8 20h8M12 16v4"/></svg></>)}
-{s.isPhone && (<><svg aria-hidden="true" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.9" strokeLinecap="round" strokeLinejoin="round"><rect x="6" y="2" width="12" height="20" rx="2.5"/><path d="M11 18h2"/></svg></>)}
-{s.isFurniture && (<><svg aria-hidden="true" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.9" strokeLinecap="round" strokeLinejoin="round"><path d="M14.7 6.3a4 4 0 0 0-5.4 5.4L3 18l3 3 6.3-6.3a4 4 0 0 0 5.4-5.4l-2.5 2.5-2.4-.6-.6-2.4z"/></svg></>)}
-{s.isShopping && (<><svg aria-hidden="true" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.9" strokeLinecap="round" strokeLinejoin="round"><path d="M5 8h14l-1.2 11.2a2 2 0 0 1-2 1.8H8.2a2 2 0 0 1-2-1.8z"/><path d="M9 8V6a3 3 0 0 1 6 0v2"/></svg></>)}
-{s.isLamp && (<><svg aria-hidden="true" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.9" strokeLinecap="round" strokeLinejoin="round"><path d="M12 2v4"/><path d="M6 14a6 6 0 0 1 12 0z"/><path d="M10 18a2 2 0 0 0 4 0"/></svg></>)}
-</div>
-<h4 style={css("margin: 4px 0 0; font-size: 21px; line-height: 1.25; font-weight: 700; letter-spacing: -0.025em; color: #0D1B2A")}>{s.title}</h4>
-<p style={css("margin: 0; font-size: 16px; color: #4A5462")}>{s.text}</p>
-<div style={css("margin-top: auto; padding-top: 8px; display: flex; flex-wrap: wrap; gap: 6px")}>
-{s.examples.map((ex, i_) => (<React.Fragment key={i_}><span style={css("font-size: 13px; font-weight: 500; color: #2C3640; background: #F2F4F1; border-radius: 999px; padding: 6px 12px")}>{ex}</span></React.Fragment>))}
-</div>
-</article>
-</React.Fragment>))}
-</div>
-</div>
-
-<div style={css("margin-top: 14px; background: #ffffff; border-radius: 28px; padding: 24px 28px; display: flex; flex-wrap: wrap; gap: 16px 32px; align-items: center; justify-content: space-between")}>
-<p style={css("margin: 0; font-size: 17px; color: #4A5462; max-width: 720px")}><strong style={css("color: #0D1B2A; font-weight: 700")}>Noget helt andet?</strong> Spørg bare. Kan jeg klare det, siger jeg ja. Ellers siger jeg det ærligt. Større opgaver får en samlet pris på forhånd.</p>
-<a href="#kontakt" onClick={v.nav.kontakt} className="m-btn" style={css("display: inline-flex; align-items: center; gap: 8px; background: #0D1B2A; color: #ffffff; text-decoration: none; font-weight: 600; font-size: 16px; padding: 13px 22px; border-radius: 999px; min-height: 48px; box-sizing: border-box")}>Spørg mig
-<svg className="m-arrow" aria-hidden="true" width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.2" strokeLinecap="round" strokeLinejoin="round"><path d="M5 12h14M13 6l6 6-6 6"/></svg>
-</a>
-</div>
-</div>
-</section>
-
-{/* OM SØREN */}
-<section id="om" style={css("padding: 0 16px 88px")}>
-<div style={css(`max-width: 1240px; margin: 0 auto; background: #ffffff; border-radius: 32px; padding: ${v.aboutPad}; box-sizing: border-box`)}>
-<p style={css("margin: 0 0 24px; font-size: 14px; font-weight: 600; color: #3F6E1C")}>Om Søren</p>
-<p style={css("margin: 0; font-size: clamp(28px, 3.8vw, 52px); line-height: 1.12; font-weight: 600; letter-spacing: -0.04em; color: #0D1B2A; max-width: 22em")}>Hej, jeg hedder Søren. Jeg hjælper med de ting i hverdagen, <span style={css("color: #8A94A1")}>der er lettere, når man er to om dem.</span></p>
-<div style={css("margin-top: 56px; padding-top: 32px; border-top: 1px solid #E2E6E0; display: grid; grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); gap: 28px")}>
-<div><p style={css("margin: 0 0 6px; font-size: 19px; font-weight: 700; letter-spacing: -0.02em")}>Roligt tempo</p><p style={css("margin: 0; font-size: 16px; color: #4A5462")}>Jeg tager mig tid og forklarer undervejs, så du selv kan næste gang.</p></div>
-<div><p style={css("margin: 0 0 6px; font-size: 19px; font-weight: 700; letter-spacing: -0.02em")}>Fast pris</p><p style={css("margin: 0; font-size: 16px; color: #4A5462")}>Du kender prisen, inden jeg går i gang. Ingen overraskelser.</p></div>
-<div><p style={css("margin: 0 0 6px; font-size: 19px; font-weight: 700; letter-spacing: -0.02em")}>Ærlige svar</p><p style={css("margin: 0; font-size: 16px; color: #4A5462")}>Kan jeg ikke løse opgaven, siger jeg det med det samme.</p></div>
-</div>
-</div>
-</section>
-
-{/* SPØRGSMÅL */}
-<section id="spoergsmaal" style={css("padding: 0 16px 88px")}>
-<div style={css("max-width: 1240px; margin: 0 auto; display: grid; grid-template-columns: repeat(12, minmax(0, 1fr)); gap: 14px")}>
-<div style={css(`grid-column: ${v.sp.faqHead}; padding: 8px 8px 16px 0`)}>
-<p style={css("margin: 0 0 14px; font-size: 14px; font-weight: 600; color: #3F6E1C")}>Spørgsmål</p>
-<h2 style={css("margin: 0 0 18px; font-size: clamp(34px, 4.2vw, 54px); line-height: 1.02; font-weight: 700; letter-spacing: -0.045em")}>Godt at vide</h2>
-<p style={css("margin: 0; font-size: 17px; color: #4A5462")}>Finder du ikke svaret, så ring på <a href="tel:+4522216814" style={css("font-weight: 600")}>22 21 68 14</a>.</p>
-</div>
-<div style={css(`grid-column: ${v.sp.faqList}; display: flex; flex-direction: column; gap: 10px`)}>
-{v.faqs.map((f, i_) => (<React.Fragment key={i_}>
-<div style={css("background: #ffffff; border-radius: 24px; overflow: hidden")}>
-<h3 style={css("margin: 0; font-size: 18px")}>
-<button type="button" onClick={f.toggle} aria-expanded={f.expanded} style={css("width: 100%; display: flex; align-items: center; justify-content: space-between; gap: 16px; text-align: left; background: transparent; border: 0; padding: 22px 24px; font-size: 18px; font-weight: 600; letter-spacing: -0.015em; color: #0D1B2A; cursor: pointer; min-height: 68px")}>
-<span>{f.q}</span>
-<span style={css(f.iconStyle)}><svg aria-hidden="true" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.4" strokeLinecap="round"><path d="M12 5v14M5 12h14"/></svg></span>
-</button>
-</h3>
-{f.open && (<>
-<p style={css("margin: 0; padding: 0 72px 24px 24px; font-size: 16px; color: #4A5462")}>{f.a}</p>
-</>)}
-</div>
-</React.Fragment>))}
-</div>
-</div>
-</section>
 
 {/* KONTAKT */}
 <section id="kontakt" style={css("padding: 0 16px 24px")}>
