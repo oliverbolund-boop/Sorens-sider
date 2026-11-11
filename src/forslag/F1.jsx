@@ -68,7 +68,6 @@ class Component extends DCLogic {
         tint: '#EEF4E7', tintInk: '#3F6E1C',
         items: [
           { isFurniture: true, title: 'Samling af møbler', text: 'Reolen, sengen eller kommoden fra papkassen, samlet og stillet på plads.', examples: ['Flatpack', 'Havemøbler', 'Emballage væk'] },
-          { isShopping: true, title: 'Indkøb af dagligvarer', text: 'Har du svært ved at komme ud, handler jeg ind for dig og bærer varerne ind.', examples: ['Fast ugentlig tur', 'Enkelte indkøb', 'Pakker'] },
           { isLamp: true, title: 'Ophæng af hylder og lamper', text: 'Det, der skal op at hænge, hænger jeg lige og solidt op.', examples: ['Hylder', 'Lamper', 'Tv på væggen'] }
         ]
       }
@@ -78,7 +77,7 @@ class Component extends DCLogic {
     const tabOff = 'background: transparent; color: #3C4654;';
     const isIt = s.tab === 'it';
     const ticker = [];
-    const words = ['PC & wifi', 'iPhone & iPad', 'Printer & mail', 'Møbelsamling', 'Ophæng', 'Indkøb', 'MitID & apps'];
+    const words = ['PC & wifi', 'iPhone & iPad', 'Printer & mail', 'Møbelsamling', 'Ophæng', 'MitID & apps'];
     for (let r = 0; r < 2; r++) words.forEach((x) => ticker.push(x));
     const faqRaw = [
       { q: 'Hvor kommer du ud?', a: 'Jeg hjælper i Kerteminde og omegn og kører også gerne længere væk efter aftale.' },
@@ -96,7 +95,7 @@ class Component extends DCLogic {
         toggle: () => this.setState({ openFaq: open ? -1 : i })
       });
     });
-    const chipLabels = ['PC & wifi', 'iPhone & iPad', 'Møbler', 'Indkøb', 'Ophæng', 'Andet'];
+    const chipLabels = ['PC & wifi', 'iPhone & iPad', 'Møbler', 'Ophæng', 'Andet'];
     const chipBase = 'font-size: 15px; font-weight: 500; padding: 6px 14px; border-radius: 999px; min-height: 40px; cursor: pointer; ';
     const chips = chipLabels.map((label) => {
       const on = !!s.picked[label];
@@ -230,15 +229,13 @@ Component.prototype.render = function () {
 <div style={css("max-width: 1240px; margin: 0 auto; display: grid; grid-template-columns: repeat(12, minmax(0, 1fr)); gap: 14px")}>
 
 <div style={css(`grid-column: ${v.sp.omText}; background: #ffffff; border-radius: 32px; padding: ${v.omPad}; box-sizing: border-box`)}>
-<p style={css("margin: 0 0 14px; font-size: 14px; font-weight: 600; color: #3F6E1C")}>Om Søren</p>
 <h2 style={css("margin: 0 0 22px; font-size: clamp(28px, 3vw, 40px); line-height: 1.08; font-weight: 700; letter-spacing: -0.04em")}>En lokal hjælper, der har tid til dig</h2>
 <p style={css("margin: 0 0 16px; font-size: 18px; color: #3C4654; max-width: 46em")}>Hej, jeg hedder Søren. Jeg bor i Kerteminde og hjælper folk i byen og omegnen med IT og praktiske opgaver i hjemmet.</p>
-<p style={css("margin: 0 0 16px; font-size: 18px; color: #3C4654; max-width: 46em")}>Det kan være en computer, der er blevet langsom, en ny telefon, der skal sættes op, eller wifi, der falder ud i stuen. Det kan også være en reol, der står i en papkasse, en lampe, der skal op at hænge, eller en tur til købmanden, hvis det er svært selv at komme ud.</p>
+<p style={css("margin: 0 0 16px; font-size: 18px; color: #3C4654; max-width: 46em")}>Det kan være en computer, der er blevet langsom, en ny telefon, der skal sættes op, eller wifi, der falder ud i stuen. Det kan også være en reol, der står i en papkasse, eller en lampe, der skal op at hænge.</p>
 <p style={css("margin: 0; font-size: 18px; color: #3C4654; max-width: 46em")}>Jeg kommer hjem til dig og tager mig god tid. Jeg forklarer undervejs og uden fagord, så du selv kan næste gang, hvis du har lyst.</p>
 </div>
 
 <div style={css(`grid-column: span 12; background: #ffffff; border-radius: 28px; padding: ${v.omPad}; box-sizing: border-box`)}>
-<p style={css("margin: 0 0 18px; font-size: 14px; font-weight: 600; color: #3F6E1C")}>Det hjælper jeg med</p>
 <div style={css("display: grid; grid-template-columns: repeat(auto-fit, minmax(260px, 1fr)); gap: 24px 40px")}>
 <div>
 <h3 style={css("margin: 0 0 10px; font-size: 21px; font-weight: 700; letter-spacing: -0.02em")}>IT-hjælp</h3>
@@ -246,7 +243,7 @@ Component.prototype.render = function () {
 </div>
 <div>
 <h3 style={css("margin: 0 0 10px; font-size: 21px; font-weight: 700; letter-spacing: -0.02em")}>Hjemmeservice</h3>
-<div style={css("display: flex; flex-wrap: wrap; gap: 8px")}><span style={css("font-size: 15px; font-weight: 500; background: #EEF4E7; color: #2F5715; border-radius: 999px; padding: 7px 14px")}>Samling af møbler</span><span style={css("font-size: 15px; font-weight: 500; background: #EEF4E7; color: #2F5715; border-radius: 999px; padding: 7px 14px")}>Ophæng af hylder og lamper</span><span style={css("font-size: 15px; font-weight: 500; background: #EEF4E7; color: #2F5715; border-radius: 999px; padding: 7px 14px")}>Gardiner og billeder</span><span style={css("font-size: 15px; font-weight: 500; background: #EEF4E7; color: #2F5715; border-radius: 999px; padding: 7px 14px")}>Indkøb af dagligvarer</span><span style={css("font-size: 15px; font-weight: 500; background: #EEF4E7; color: #2F5715; border-radius: 999px; padding: 7px 14px")}>Afhentning af pakker</span></div>
+<div style={css("display: flex; flex-wrap: wrap; gap: 8px")}><span style={css("font-size: 15px; font-weight: 500; background: #EEF4E7; color: #2F5715; border-radius: 999px; padding: 7px 14px")}>Samling af møbler</span><span style={css("font-size: 15px; font-weight: 500; background: #EEF4E7; color: #2F5715; border-radius: 999px; padding: 7px 14px")}>Ophæng af hylder og lamper</span><span style={css("font-size: 15px; font-weight: 500; background: #EEF4E7; color: #2F5715; border-radius: 999px; padding: 7px 14px")}>Gardiner og billeder</span><span style={css("font-size: 15px; font-weight: 500; background: #EEF4E7; color: #2F5715; border-radius: 999px; padding: 7px 14px")}>Afhentning af pakker</span></div>
 </div>
 </div>
 <div style={css("margin-top: 28px; padding-top: 24px; border-top: 1px solid #E2E6E0; display: flex; flex-wrap: wrap; gap: 14px 28px; align-items: center; justify-content: space-between")}>
