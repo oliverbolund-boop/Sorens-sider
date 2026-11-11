@@ -121,6 +121,7 @@ class Component extends DCLogic {
       photoMin: isDesktop ? '580px' : (isPhone ? '440px' : '520px'),
       aboutPad: isPhone ? '32px 24px' : '64px',
       contactPad: isPhone ? '32px 24px 40px' : '64px',
+      contactGap: isDesktop ? '32px' : '0px',
       nav,
       group: isIt ? groups.it : groups.home,
       tabIt: { pressed: isIt ? 'true' : 'false', style: tabBase + (isIt ? tabOn : tabOff) },
@@ -216,31 +217,11 @@ IT &amp; hjemmeservice i Kerteminde og omegn
 </div>
 </div>
 
-<div style={css(`grid-column: ${v.sp.small}; background: #0D1B2A; color: #ffffff; border-radius: 28px; padding: 24px; display: flex; flex-direction: column; justify-content: space-between; gap: 28px; min-height: 190px; box-sizing: border-box`)}>
-<span style={css("display: flex; justify-content: space-between; align-items: center")}><span style={css("font-size: 14px; font-weight: 600; color: #C6E97A")}>IT-hjælp</span></span>
-<span><span style={css("display: block; font-size: clamp(30px, 3.4vw, 44px); font-weight: 700; letter-spacing: -0.04em; line-height: 1")}>350 kr.</span><span style={css("font-size: 14px; color: #B8C3D3")}>pr. time · inkl. moms</span></span>
-</div>
-
-<div style={css(`grid-column: ${v.sp.small}; background: #DDEBC9; color: #0D1B2A; border-radius: 28px; padding: 24px; display: flex; flex-direction: column; justify-content: space-between; gap: 28px; min-height: 190px; box-sizing: border-box`)}>
-<span style={css("display: flex; justify-content: space-between; align-items: center")}><span style={css("font-size: 14px; font-weight: 600; color: #2F5715")}>Hjemmeservice</span></span>
-<span><span style={css("display: block; font-size: clamp(30px, 3.4vw, 44px); font-weight: 700; letter-spacing: -0.04em; line-height: 1")}>500 kr.</span><span style={css("font-size: 14px; color: #3D4A33")}>pr. time · inkl. moms</span></span>
-</div>
-
-<div style={css(`grid-column: ${v.sp.small}; background: #ffffff; border-radius: 28px; padding: 24px; display: flex; flex-direction: column; justify-content: space-between; gap: 28px; min-height: 190px; box-sizing: border-box`)}>
-<span style={css("width: 44px; height: 44px; border-radius: 14px; background: #EAF0F7; color: #1E3A64; display: flex; align-items: center; justify-content: center")}><svg aria-hidden="true" width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"/><path d="M9.5 9a2.5 2.5 0 1 1 3.5 2.3c-.6.3-1 .8-1 1.4"/><path d="M12 15h.01"/></svg></span>
-<span><span style={css("display: block; font-size: 20px; font-weight: 700; letter-spacing: -0.02em; line-height: 1.2")}>Ingen dumme spørgsmål</span><span style={css("font-size: 14px; color: #4A5462")}>Jeg forklarer gerne undervejs</span></span>
-</div>
-
-<div style={css(`grid-column: ${v.sp.small}; background: #ffffff; border-radius: 28px; padding: 24px; display: flex; flex-direction: column; justify-content: space-between; gap: 28px; min-height: 190px; box-sizing: border-box`)}>
-<span style={css("width: 44px; height: 44px; border-radius: 14px; background: #EEF4E7; color: #3F6E1C; display: flex; align-items: center; justify-content: center")}><svg aria-hidden="true" width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><rect x="3" y="6" width="18" height="13" rx="2.5"/><path d="M3 10h18M7 15h3"/></svg></span>
-<span><span style={css("display: block; font-size: 20px; font-weight: 700; letter-spacing: -0.02em; line-height: 1.2")}>Nem betaling</span><span style={css("font-size: 14px; color: #4A5462")}>MobilePay, kontant eller faktura</span></span>
-</div>
-
 </div>
 </section>
 
 {/* LØBEBÅND */}
-<div aria-hidden="true" style={css("overflow: hidden; padding: 22px 0; margin: 8px 0 0; background: #0D1B2A")}>
+<div aria-hidden="true" style={css("overflow: hidden; padding: 22px 0; margin: 8px 0 16px; background: #0D1B2A")}>
 <div className="m-track" style={css("display: flex; width: max-content; gap: 0")}>
 {v.ticker.map((t, i_) => (<React.Fragment key={i_}>
 <span style={css("display: inline-flex; align-items: center; gap: 28px; padding-right: 28px; font-size: clamp(22px, 2.6vw, 32px); font-weight: 600; letter-spacing: -0.03em; color: #ffffff; white-space: nowrap")}>{t}<span style={css("width: 10px; height: 10px; border-radius: 999px; background: #C6E97A; display: inline-block")}></span></span>
@@ -255,7 +236,7 @@ IT &amp; hjemmeservice i Kerteminde og omegn
 <path d="M0 170 C 380 90, 820 220, 1240 110 L1240 260 L0 260 Z" fill="#152A45"/>
 <path d="M0 196 C 380 116, 820 246, 1240 136" stroke="#3F6E1C" strokeWidth="6" fill="none"/>
 </svg>
-<div style={css("position: relative; display: grid; grid-template-columns: repeat(12, minmax(0, 1fr)); gap: 40px 32px; align-items: start")}>
+<div style={css(`position: relative; display: grid; grid-template-columns: repeat(12, minmax(0, 1fr)); gap: 40px ${v.contactGap}; align-items: start`)}>
 <div style={css(`grid-column: ${v.sp.contactText}`)}>
 <p style={css("margin: 0 0 18px; font-size: 14px; font-weight: 600; color: #C6E97A")}>Kontakt</p>
 <h2 style={css("margin: 0 0 20px; font-size: clamp(34px, 4.2vw, 54px); line-height: 1.02; font-weight: 700; letter-spacing: -0.045em; color: #ffffff")}>Står du med noget, der driller?</h2>
