@@ -215,17 +215,8 @@ Component.prototype.render = function () {
 {/* FORSIDE: BÅND + KONTAKT */}
 {v.isHome && (<>
 
-{/* LØBEBÅND */}
-<div aria-hidden="true" style={css("overflow: hidden; padding: 22px 0; margin: 24px 0 16px; background: #0D1B2A")}>
-<div className="m-track" style={css("display: flex; width: max-content; gap: 0")}>
-{v.ticker.map((t, i_) => (<React.Fragment key={i_}>
-<span style={css("display: inline-flex; align-items: center; gap: 28px; padding-right: 28px; font-size: clamp(22px, 2.6vw, 32px); font-weight: 600; letter-spacing: -0.03em; color: #ffffff; white-space: nowrap")}>{t}<span style={css("width: 10px; height: 10px; border-radius: 999px; background: #C6E97A; display: inline-block")}></span></span>
-</React.Fragment>))}
-</div>
-</div>
-
 {/* KONTAKT */}
-<section id="kontakt" style={css("padding: 0 16px 24px")}>
+<section id="kontakt" style={css("padding: 24px 16px 0")}>
 <div style={css(`max-width: 1240px; margin: 0 auto; background: #0D1B2A; color: #ffffff; border-radius: 32px; padding: ${v.contactPad}; box-sizing: border-box; position: relative; overflow: hidden`)}>
 <svg aria-hidden="true" viewBox="0 0 1240 260" preserveAspectRatio="none" style={css("position: absolute; left: 0; right: 0; bottom: 0; width: 100%; height: 200px")}>
 <path d="M0 170 C 380 90, 820 220, 1240 110 L1240 260 L0 260 Z" fill="#152A45"/>
@@ -288,6 +279,16 @@ Component.prototype.render = function () {
 </div>
 </div>
 </section>
+
+{/* LØBEBÅND */}
+<div aria-hidden="true" style={css("overflow: hidden; padding: 22px 0; margin: 16px 0 0; background: #0D1B2A")}>
+<div className="m-track" style={css("display: flex; width: max-content; gap: 0")}>
+{v.ticker.map((t, i_) => (<React.Fragment key={i_}>
+<span style={css("display: inline-flex; align-items: center; gap: 28px; padding-right: 28px; font-size: clamp(22px, 2.6vw, 32px); font-weight: 600; letter-spacing: -0.03em; color: #ffffff; white-space: nowrap")}>{t}<span style={css("width: 10px; height: 10px; border-radius: 999px; background: #C6E97A; display: inline-block")}></span></span>
+</React.Fragment>))}
+</div>
+</div>
+
 
 </>)}
 
