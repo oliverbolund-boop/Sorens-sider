@@ -95,7 +95,7 @@ class Component extends DCLogic {
         toggle: () => this.setState({ openFaq: open ? -1 : i })
       });
     });
-    const chipLabels = ['PC & wifi', 'iPhone & iPad', 'Møbler', 'Ophæng', 'Andet'];
+    const chipLabels = ['Møbler', 'Ophæng', 'PC & wifi', 'iPhone & iPad', 'Andet'];
     const chipBase = 'font-size: 15px; font-weight: 500; padding: 6px 14px; border-radius: 999px; min-height: 40px; cursor: pointer; ';
     const chips = chipLabels.map((label) => {
       const on = !!s.picked[label];
