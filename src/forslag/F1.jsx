@@ -50,8 +50,8 @@ class Component extends DCLogic {
     const isDesktop = s.w >= 1000;
     const isPhone = s.w < 640;
     const sp = isDesktop
-      ? { head: 'span 7', photo: 'span 5', small: 'span 3', panel: 'span 4', items: 'span 8', faqHead: 'span 4', faqList: 'span 8', contactText: 'span 6', contactForm: 'span 6' }
-      : { head: 'span 12', photo: 'span 12', small: 'span 6', panel: 'span 12', items: 'span 12', faqHead: 'span 12', faqList: 'span 12', contactText: s.w >= 720 ? 'span 6' : 'span 12', contactForm: s.w >= 720 ? 'span 6' : 'span 12' };
+      ? { head: 'span 7', photo: 'span 5', small: 'span 3', panel: 'span 4', items: 'span 8', faqHead: 'span 4', faqList: 'span 8', contactText: 'span 6', contactForm: 'span 6', omText: 'span 7', omSide: 'span 5' }
+      : { head: 'span 12', photo: 'span 12', small: 'span 6', panel: 'span 12', items: 'span 12', faqHead: 'span 12', faqList: 'span 12', contactText: s.w >= 720 ? 'span 6' : 'span 12', contactForm: s.w >= 720 ? 'span 6' : 'span 12', omText: 'span 12', omSide: 'span 12' };
     const groups = {
       it: {
         label: 'IT-hjælp', title: 'Computer, wifi og telefon', price: '350 kr.', note: '', hasNote: false,
@@ -129,6 +129,8 @@ class Component extends DCLogic {
       contactRowGap: s.w >= 720 ? '0px' : '32px',
       contactGap: isDesktop ? '48px' : (s.w >= 720 ? '24px' : '0px'),
       isPhone,
+      showInlinePrice: s.w >= 720,
+      omPad: isPhone ? '28px 24px' : '40px',
       nav,
       group: isIt ? groups.it : groups.home,
       tabIt: { pressed: isIt ? 'true' : 'false', style: tabBase + (isIt ? tabOn : tabOff) },
@@ -166,6 +168,13 @@ Component.prototype.render = function () {
 <span style={css("font-weight: 700; font-size: 16px; letter-spacing: -0.02em")}>Sørens hverdagshjælp</span>
 </a>
 
+{v.showInlinePrice && (<>
+<div aria-label="Pris: 350 kroner i timen. Privat inklusive moms, erhverv eksklusive moms." style={css("display: flex; align-items: center; gap: 12px; padding: 6px 16px 6px 6px; border-radius: 999px; background: #EEF4E7; margin-left: auto; flex: 0 0 auto")}>
+<span style={css("display: inline-flex; align-items: baseline; gap: 4px; background: #3F6E1C; color: #ffffff; border-radius: 999px; padding: 6px 12px; font-weight: 700; font-size: 15px; white-space: nowrap")}>350 kr.<span style={css("font-size: 12px; font-weight: 600; opacity: 0.9")}>/ time</span></span>
+<span style={css("display: flex; flex-direction: column; line-height: 1.2; font-size: 12px; color: #2C3A2A; white-space: nowrap")}><span><strong style={css("font-weight: 700")}>Privat</strong> inkl. moms</span><span><strong style={css("font-weight: 700")}>Erhverv</strong> ekskl. moms</span></span>
+</div>
+</>)}
+
 {v.isDesktop && (<>
 <nav aria-label="Hovedmenu" style={css("display: flex; align-items: center; gap: 2px")}>
 <a href={v.navHref} onClick={v.navAction} className="m-link" style={css("padding: 10px 16px; border-radius: 999px; text-decoration: none; font-weight: 500; font-size: 15px; color: #3C4654")}>{v.navLabel}</a>
@@ -180,8 +189,9 @@ Component.prototype.render = function () {
 <a href={v.navHref} onClick={v.navAction} className="m-btn" style={css("display: inline-flex; align-items: center; height: 46px; padding: 0 18px; border-radius: 999px; background: #0D1B2A; color: #ffffff; text-decoration: none; font-weight: 600; font-size: 15px; box-sizing: border-box; white-space: nowrap; flex: 0 0 auto")}>{v.navLabel}</a>
 </>)}
 </div>
-
-
+{v.isPhone && (<>
+<p style={css("max-width: 1240px; margin: 8px auto 0; padding: 8px 14px; border-radius: 16px; background: #EEF4E7; color: #2C3A2A; font-size: 13px; line-height: 1.35; text-align: center; box-sizing: border-box")}><strong style={css("color: #3F6E1C; font-weight: 700; font-size: 15px")}>350 kr. / time</strong><br />Privat inkl. moms · Erhverv ekskl. moms</p>
+</>)}
 </header>
 
 {/* OM SØREN (den tidligere top) */}
@@ -213,6 +223,62 @@ Component.prototype.render = function () {
 </div>
 </section>
 
+{/* OM SØREN: TEKST */}
+<section style={css("padding: 0 16px 16px")}>
+<div style={css("max-width: 1240px; margin: 0 auto; display: grid; grid-template-columns: repeat(12, minmax(0, 1fr)); gap: 14px")}>
+
+<div style={css(`grid-column: ${v.sp.omText}; background: #ffffff; border-radius: 32px; padding: ${v.omPad}; box-sizing: border-box`)}>
+<p style={css("margin: 0 0 14px; font-size: 14px; font-weight: 600; color: #3F6E1C")}>Om Søren</p>
+<h2 style={css("margin: 0 0 22px; font-size: clamp(28px, 3vw, 40px); line-height: 1.08; font-weight: 700; letter-spacing: -0.04em")}>En lokal hjælper, der har tid til dig</h2>
+<p style={css("margin: 0 0 16px; font-size: 18px; color: #3C4654")}>Hej, jeg hedder Søren. Jeg bor i Kerteminde og hjælper folk i byen og omegnen med de ting i hverdagen, der er lettere, når man er to om dem.</p>
+<p style={css("margin: 0 0 16px; font-size: 18px; color: #3C4654")}>Det kan være en computer, der er blevet langsom, en ny telefon, der skal sættes op, eller wifi, der falder ud i stuen. Det kan også være en reol, der står i en papkasse, en lampe, der skal op at hænge, eller en tur til købmanden, hvis det er svært selv at komme ud.</p>
+<p style={css("margin: 0; font-size: 18px; color: #3C4654")}>Jeg kommer hjem til dig og tager mig god tid. Jeg forklarer undervejs og uden fagord, så du selv kan næste gang, hvis du har lyst. Og der er ingen dumme spørgsmål.</p>
+</div>
+
+<div style={css(`grid-column: ${v.sp.omSide}; display: flex; flex-direction: column; gap: 14px`)}>
+<div style={css("background: #0D1B2A; color: #ffffff; border-radius: 28px; padding: 26px 28px")}>
+<p style={css("margin: 0 0 16px; font-size: 14px; font-weight: 600; color: #C6E97A")}>Det kan du regne med</p>
+<ul style={css("list-style: none; margin: 0; padding: 0; display: flex; flex-direction: column; gap: 12px; font-size: 16px")}>
+<li style={css("display: flex; gap: 12px; align-items: flex-start")}><svg aria-hidden="true" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#C6E97A" strokeWidth="2.6" strokeLinecap="round" strokeLinejoin="round" style={css("flex: 0 0 auto; margin-top: 2px")}><path d="M5 12.5l4.5 4.5L19 7.5"/></svg><span><strong>Roligt tempo.</strong> Jeg forklarer, så du forstår, hvad der er lavet.</span></li>
+<li style={css("display: flex; gap: 12px; align-items: flex-start")}><svg aria-hidden="true" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#C6E97A" strokeWidth="2.6" strokeLinecap="round" strokeLinejoin="round" style={css("flex: 0 0 auto; margin-top: 2px")}><path d="M5 12.5l4.5 4.5L19 7.5"/></svg><span><strong>Fast timepris.</strong> Du kender prisen, inden jeg går i gang.</span></li>
+<li style={css("display: flex; gap: 12px; align-items: flex-start")}><svg aria-hidden="true" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#C6E97A" strokeWidth="2.6" strokeLinecap="round" strokeLinejoin="round" style={css("flex: 0 0 auto; margin-top: 2px")}><path d="M5 12.5l4.5 4.5L19 7.5"/></svg><span><strong>Ærlige svar.</strong> Kan jeg ikke løse opgaven, siger jeg det med det samme.</span></li>
+<li style={css("display: flex; gap: 12px; align-items: flex-start")}><svg aria-hidden="true" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#C6E97A" strokeWidth="2.6" strokeLinecap="round" strokeLinejoin="round" style={css("flex: 0 0 auto; margin-top: 2px")}><path d="M5 12.5l4.5 4.5L19 7.5"/></svg><span><strong>Direkte kontakt.</strong> Du taler altid med mig, ikke et kundecenter.</span></li>
+</ul>
+</div>
+<div style={css("background: #DDEBC9; color: #0D1B2A; border-radius: 28px; padding: 26px 28px")}>
+<p style={css("margin: 0 0 14px; font-size: 14px; font-weight: 600; color: #2F5715")}>Praktisk</p>
+<dl style={css("margin: 0; display: grid; grid-template-columns: auto 1fr; gap: 10px 16px; font-size: 16px")}>
+<dt style={css("font-weight: 700")}>Område</dt><dd style={css("margin: 0")}>Kerteminde og omegn. Længere væk efter aftale.</dd>
+<dt style={css("font-weight: 700")}>Pris</dt><dd style={css("margin: 0")}>350 kr. i timen. Privat inkl. moms, erhverv ekskl. moms.</dd>
+<dt style={css("font-weight: 700")}>Betaling</dt><dd style={css("margin: 0")}>MobilePay, kontant eller faktura.</dd>
+<dt style={css("font-weight: 700")}>Kunder</dt><dd style={css("margin: 0")}>Private og små virksomheder.</dd>
+</dl>
+</div>
+</div>
+
+<div style={css(`grid-column: span 12; background: #ffffff; border-radius: 28px; padding: ${v.omPad}; box-sizing: border-box`)}>
+<p style={css("margin: 0 0 18px; font-size: 14px; font-weight: 600; color: #3F6E1C")}>Det hjælper jeg med</p>
+<div style={css("display: grid; grid-template-columns: repeat(auto-fit, minmax(260px, 1fr)); gap: 24px 40px")}>
+<div>
+<h3 style={css("margin: 0 0 10px; font-size: 21px; font-weight: 700; letter-spacing: -0.02em")}>IT-hjælp</h3>
+<div style={css("display: flex; flex-wrap: wrap; gap: 8px")}><span style={css("font-size: 15px; font-weight: 500; background: #EAF0F7; color: #1E3A64; border-radius: 999px; padding: 7px 14px")}>Computer og ny pc</span><span style={css("font-size: 15px; font-weight: 500; background: #EAF0F7; color: #1E3A64; border-radius: 999px; padding: 7px 14px")}>Wifi og router</span><span style={css("font-size: 15px; font-weight: 500; background: #EAF0F7; color: #1E3A64; border-radius: 999px; padding: 7px 14px")}>Printer og mail</span><span style={css("font-size: 15px; font-weight: 500; background: #EAF0F7; color: #1E3A64; border-radius: 999px; padding: 7px 14px")}>iPhone og iPad</span><span style={css("font-size: 15px; font-weight: 500; background: #EAF0F7; color: #1E3A64; border-radius: 999px; padding: 7px 14px")}>MitID, apps og MobilePay</span><span style={css("font-size: 15px; font-weight: 500; background: #EAF0F7; color: #1E3A64; border-radius: 999px; padding: 7px 14px")}>Billeder og videoopkald</span></div>
+</div>
+<div>
+<h3 style={css("margin: 0 0 10px; font-size: 21px; font-weight: 700; letter-spacing: -0.02em")}>Hjemmeservice</h3>
+<div style={css("display: flex; flex-wrap: wrap; gap: 8px")}><span style={css("font-size: 15px; font-weight: 500; background: #EEF4E7; color: #2F5715; border-radius: 999px; padding: 7px 14px")}>Samling af møbler</span><span style={css("font-size: 15px; font-weight: 500; background: #EEF4E7; color: #2F5715; border-radius: 999px; padding: 7px 14px")}>Ophæng af hylder og lamper</span><span style={css("font-size: 15px; font-weight: 500; background: #EEF4E7; color: #2F5715; border-radius: 999px; padding: 7px 14px")}>Gardiner og billeder</span><span style={css("font-size: 15px; font-weight: 500; background: #EEF4E7; color: #2F5715; border-radius: 999px; padding: 7px 14px")}>Indkøb af dagligvarer</span><span style={css("font-size: 15px; font-weight: 500; background: #EEF4E7; color: #2F5715; border-radius: 999px; padding: 7px 14px")}>Afhentning af pakker</span></div>
+</div>
+</div>
+<div style={css("margin-top: 28px; padding-top: 24px; border-top: 1px solid #E2E6E0; display: flex; flex-wrap: wrap; gap: 14px 28px; align-items: center; justify-content: space-between")}>
+<p style={css("margin: 0; font-size: 17px; color: #3C4654")}><strong style={css("color: #0D1B2A")}>Står du med noget, der driller?</strong> Ring eller send en sms, så finder vi en tid.</p>
+<a href="#kontakt" onClick={v.nav.kontakt} className="m-btn" style={css("display: inline-flex; align-items: center; gap: 10px; background: #0D1B2A; color: #ffffff; text-decoration: none; font-weight: 600; font-size: 16px; padding: 14px 22px; border-radius: 999px; min-height: 50px; box-sizing: border-box")}>Kontakt Søren
+<svg className="m-arrow" aria-hidden="true" width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.2" strokeLinecap="round" strokeLinejoin="round"><path d="M5 12h14M13 6l6 6-6 6"/></svg>
+</a>
+</div>
+</div>
+
+</div>
+</section>
+
 </>)}
 
 {/* FORSIDE: BÅND + KONTAKT */}
@@ -229,7 +295,7 @@ Component.prototype.render = function () {
 <div style={css(`grid-column: ${v.sp.contactText}`)}>
 <p style={css("margin: 0 0 12px; font-size: 14px; font-weight: 600; color: #C6E97A")}>Kontakt</p>
 <h2 style={css("margin: 0 0 14px; font-size: clamp(30px, 3.6vw, 50px); line-height: 1.02; font-weight: 700; letter-spacing: -0.045em; color: #ffffff")}>Står du med noget, der driller?</h2>
-<p style={css("margin: 0 0 24px; font-size: 17px; color: #B8C3D3; max-width: 28em")}>Ring eller send en sms, så finder vi en tid, der passer. Tager jeg ikke telefonen, ringer jeg tilbage.</p>
+<p style={css("margin: 0 0 24px; font-size: 17px; color: #B8C3D3; max-width: 28em")}>Ring eller send en sms, så finder vi en tid, der passer.</p>
 <a href="tel:+4522216814" className="m-btn" style={css("display: inline-block; color: #ffffff; text-decoration: none; font-size: clamp(40px, 5.4vw, 76px); font-weight: 700; letter-spacing: -0.05em; line-height: 1")}>22 21 68 14</a>
 <div style={css("margin-top: 22px; display: flex; flex-wrap: wrap; gap: 10px")}>
 <a href="sms:+4522216814" className="m-btn" style={css("display: inline-flex; align-items: center; gap: 8px; background: #C6E97A; color: #0D1B2A; text-decoration: none; font-weight: 600; font-size: 16px; padding: 13px 22px; border-radius: 999px; min-height: 48px; box-sizing: border-box")}>Send en sms</a>
