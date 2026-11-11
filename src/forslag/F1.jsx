@@ -78,7 +78,7 @@ class Component extends DCLogic {
     const tabOff = 'background: transparent; color: #3C4654;';
     const isIt = s.tab === 'it';
     const ticker = [];
-    const words = ['PC & wifi', 'iPhone & iPad', 'Printer & mail', 'Møbelsamling', 'Ophæng', 'Indkøb', 'MitID & apps', 'Tv på væggen'];
+    const words = ['PC & wifi', 'iPhone & iPad', 'Printer & mail', 'Møbelsamling', 'Ophæng', 'Indkøb', 'MitID & apps'];
     for (let r = 0; r < 2; r++) words.forEach((x) => ticker.push(x));
     const faqRaw = [
       { q: 'Hvor kommer du ud?', a: 'Jeg hjælper i Kerteminde og omegn og kører også gerne længere væk efter aftale.' },
@@ -113,6 +113,10 @@ class Component extends DCLogic {
       isDesktop,
       isCompact: !isDesktop,
       isHome: s.view === 'home',
+      isOm: s.view === 'om',
+      navLabel: s.view === 'home' ? 'Om Søren' : 'Kontakt',
+      navHref: s.view === 'home' ? '#top' : '#kontakt',
+      navAction: s.view === 'home' ? (e) => this.openPage('om', e) : nav.kontakt,
       isPrivacy: s.view === 'privatliv',
       isCookies: s.view === 'cookies',
       sp,
@@ -161,7 +165,7 @@ Component.prototype.render = function () {
 
 {v.isDesktop && (<>
 <nav aria-label="Hovedmenu" style={css("display: flex; align-items: center; gap: 2px")}>
-<a href="#kontakt" onClick={v.nav.kontakt} className="m-link" style={css("padding: 10px 16px; border-radius: 999px; text-decoration: none; font-weight: 500; font-size: 15px; color: #3C4654")}>Kontakt</a>
+<a href={v.navHref} onClick={v.navAction} className="m-link" style={css("padding: 10px 16px; border-radius: 999px; text-decoration: none; font-weight: 500; font-size: 15px; color: #3C4654")}>{v.navLabel}</a>
 <a href="tel:+4522216814" className="m-btn" style={css("margin-left: 8px; display: inline-flex; align-items: center; gap: 8px; background: #0D1B2A; color: #ffffff; text-decoration: none; font-weight: 600; font-size: 15px; padding: 12px 20px; border-radius: 999px; min-height: 44px; box-sizing: border-box")}>
 <svg aria-hidden="true" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><path d="M22 16.9v3a2 2 0 0 1-2.2 2 19.8 19.8 0 0 1-8.6-3.1 19.5 19.5 0 0 1-6-6A19.8 19.8 0 0 1 2.1 4.2 2 2 0 0 1 4.1 2h3a2 2 0 0 1 2 1.7c.1.9.4 1.8.7 2.7a2 2 0 0 1-.5 2.1L8 9.8a16 16 0 0 0 6 6l1.3-1.3a2 2 0 0 1 2.1-.5c.9.3 1.8.6 2.7.7a2 2 0 0 1 1.7 2z"/></svg>
 22 21 68 14
@@ -170,31 +174,21 @@ Component.prototype.render = function () {
 </>)}
 
 {v.isCompact && (<>
-<a href="#kontakt" onClick={v.nav.kontakt} className="m-btn" style={css("display: inline-flex; align-items: center; height: 46px; padding: 0 18px; border-radius: 999px; background: #0D1B2A; color: #ffffff; text-decoration: none; font-weight: 600; font-size: 15px; box-sizing: border-box")}>Kontakt</a>
+<a href={v.navHref} onClick={v.navAction} className="m-btn" style={css("display: inline-flex; align-items: center; height: 46px; padding: 0 18px; border-radius: 999px; background: #0D1B2A; color: #ffffff; text-decoration: none; font-weight: 600; font-size: 15px; box-sizing: border-box; white-space: nowrap; flex: 0 0 auto")}>{v.navLabel}</a>
 </>)}
 </div>
 
 
 </header>
 
-{v.isHome && (<>
-
-{/* HERO: BENTO */}
+{/* OM SØREN (den tidligere top) */}
+{v.isOm && (<>
 <section id="top" style={css("padding: 24px 16px 16px")}>
 <div style={css("max-width: 1240px; margin: 0 auto; display: grid; grid-template-columns: repeat(12, minmax(0, 1fr)); gap: 14px")}>
 
-<div style={css(`grid-column: ${v.sp.head}; background: #ffffff; border-radius: 32px; padding: ${v.heroPad}; display: flex; flex-direction: column; justify-content: space-between; gap: 40px; min-height: ${v.heroMin}; box-sizing: border-box`)}>
+<div style={css(`grid-column: ${v.sp.head}; background: #ffffff; border-radius: 32px; padding: ${v.heroPad}; display: flex; flex-direction: column; justify-content: center; gap: 40px; min-height: ${v.heroMin}; box-sizing: border-box`)}>
 <div>
 <h1 style={css("margin: 0; font-size: clamp(42px, 6.2vw, 86px); line-height: 0.98; font-weight: 700; letter-spacing: -0.05em; color: #0D1B2A")}>Hjælp til det digitale <span style={css("color: #3F6E1C")}>og det praktiske.</span></h1>
-</div>
-<div style={css("display: flex; flex-wrap: wrap; gap: 24px 40px; align-items: flex-end; justify-content: space-between")}>
-<p style={css("margin: 0; font-size: 18px; line-height: 1.55; color: #4A5462; max-width: 26em")}>Jeg kommer hjem til dig og hjælper med computer, wifi og telefon, og med de praktiske opgaver i hjemmet. I et roligt tempo.</p>
-<div style={css("display: flex; flex-wrap: wrap; gap: 10px")}>
-<a href="tel:+4522216814" className="m-btn" style={css("display: inline-flex; align-items: center; gap: 10px; background: #0D1B2A; color: #ffffff; text-decoration: none; font-weight: 600; font-size: 17px; padding: 16px 24px; border-radius: 999px; min-height: 54px; box-sizing: border-box")}>Ring til mig
-<svg className="m-arrow" aria-hidden="true" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.2" strokeLinecap="round" strokeLinejoin="round"><path d="M5 12h14M13 6l6 6-6 6"/></svg>
-</a>
-<a href="#kontakt" onClick={v.nav.kontakt} className="m-btn" style={css("display: inline-flex; align-items: center; background: #F2F4F1; color: #0D1B2A; text-decoration: none; font-weight: 600; font-size: 17px; padding: 16px 24px; border-radius: 999px; min-height: 54px; box-sizing: border-box")}>Bliv ringet op</a>
-</div>
 </div>
 </div>
 
@@ -216,8 +210,13 @@ Component.prototype.render = function () {
 </div>
 </section>
 
+</>)}
+
+{/* FORSIDE: BÅND + KONTAKT */}
+{v.isHome && (<>
+
 {/* LØBEBÅND */}
-<div aria-hidden="true" style={css("overflow: hidden; padding: 22px 0; margin: 8px 0 16px; background: #0D1B2A")}>
+<div aria-hidden="true" style={css("overflow: hidden; padding: 22px 0; margin: 24px 0 16px; background: #0D1B2A")}>
 <div className="m-track" style={css("display: flex; width: max-content; gap: 0")}>
 {v.ticker.map((t, i_) => (<React.Fragment key={i_}>
 <span style={css("display: inline-flex; align-items: center; gap: 28px; padding-right: 28px; font-size: clamp(22px, 2.6vw, 32px); font-weight: 600; letter-spacing: -0.03em; color: #ffffff; white-space: nowrap")}>{t}<span style={css("width: 10px; height: 10px; border-radius: 999px; background: #C6E97A; display: inline-block")}></span></span>
