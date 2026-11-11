@@ -51,7 +51,7 @@ class Component extends DCLogic {
     const isPhone = s.w < 640;
     const sp = isDesktop
       ? { head: 'span 7', photo: 'span 5', small: 'span 3', panel: 'span 4', items: 'span 8', faqHead: 'span 4', faqList: 'span 8', contactText: 'span 6', contactForm: 'span 6' }
-      : { head: 'span 12', photo: 'span 12', small: 'span 6', panel: 'span 12', items: 'span 12', faqHead: 'span 12', faqList: 'span 12', contactText: 'span 12', contactForm: 'span 12' };
+      : { head: 'span 12', photo: 'span 12', small: 'span 6', panel: 'span 12', items: 'span 12', faqHead: 'span 12', faqList: 'span 12', contactText: s.w >= 720 ? 'span 6' : 'span 12', contactForm: s.w >= 720 ? 'span 6' : 'span 12' };
     const groups = {
       it: {
         label: 'IT-hjælp', title: 'Computer, wifi og telefon', price: '350 kr.', note: '', hasNote: false,
@@ -97,7 +97,7 @@ class Component extends DCLogic {
       });
     });
     const chipLabels = ['PC & wifi', 'iPhone & iPad', 'Møbler', 'Indkøb', 'Ophæng', 'Andet'];
-    const chipBase = 'font-size: 15px; font-weight: 500; padding: 10px 16px; border-radius: 999px; min-height: 44px; cursor: pointer; ';
+    const chipBase = 'font-size: 15px; font-weight: 500; padding: 6px 14px; border-radius: 999px; min-height: 40px; cursor: pointer; ';
     const chips = chipLabels.map((label) => {
       const on = !!s.picked[label];
       return {
@@ -124,8 +124,11 @@ class Component extends DCLogic {
       heroMin: isDesktop ? '580px' : '0px',
       photoMin: isDesktop ? '580px' : (isPhone ? '440px' : '520px'),
       aboutPad: isPhone ? '32px 24px' : '64px',
-      contactPad: isPhone ? '32px 24px 40px' : '64px',
-      contactGap: isDesktop ? '32px' : '0px',
+      contactPad: isPhone ? '32px 24px 40px' : (isDesktop ? '28px 44px' : '24px'),
+      formPad: isPhone ? '24px' : '20px 24px',
+      contactRowGap: s.w >= 720 ? '0px' : '32px',
+      contactGap: isDesktop ? '48px' : (s.w >= 720 ? '24px' : '0px'),
+      isPhone,
       nav,
       group: isIt ? groups.it : groups.home,
       tabIt: { pressed: isIt ? 'true' : 'false', style: tabBase + (isIt ? tabOn : tabOff) },
@@ -216,55 +219,52 @@ Component.prototype.render = function () {
 {v.isHome && (<>
 
 {/* KONTAKT */}
-<section id="kontakt" style={css("padding: 24px 16px 0")}>
+<section id="kontakt" style={css("padding: 12px 16px 0")}>
 <div style={css(`max-width: 1240px; margin: 0 auto; background: #0D1B2A; color: #ffffff; border-radius: 32px; padding: ${v.contactPad}; box-sizing: border-box; position: relative; overflow: hidden`)}>
 <svg aria-hidden="true" viewBox="0 0 1240 260" preserveAspectRatio="none" style={css("position: absolute; left: 0; right: 0; bottom: 0; width: 100%; height: 200px")}>
 <path d="M0 170 C 380 90, 820 220, 1240 110 L1240 260 L0 260 Z" fill="#152A45"/>
 <path d="M0 196 C 380 116, 820 246, 1240 136" stroke="#3F6E1C" strokeWidth="6" fill="none"/>
 </svg>
-<div style={css(`position: relative; display: grid; grid-template-columns: repeat(12, minmax(0, 1fr)); gap: 40px ${v.contactGap}; align-items: start`)}>
+<div style={css(`position: relative; display: grid; grid-template-columns: repeat(12, minmax(0, 1fr)); gap: ${v.contactRowGap} ${v.contactGap}; align-items: center`)}>
 <div style={css(`grid-column: ${v.sp.contactText}`)}>
-<p style={css("margin: 0 0 18px; font-size: 14px; font-weight: 600; color: #C6E97A")}>Kontakt</p>
-<h2 style={css("margin: 0 0 20px; font-size: clamp(34px, 4.2vw, 54px); line-height: 1.02; font-weight: 700; letter-spacing: -0.045em; color: #ffffff")}>Står du med noget, der driller?</h2>
-<p style={css("margin: 0 0 36px; font-size: 17px; color: #B8C3D3; max-width: 28em")}>Ring eller send en sms, så finder vi en tid, der passer. Tager jeg ikke telefonen, ringer jeg tilbage.</p>
-<a href="tel:+4522216814" className="m-btn" style={css("display: inline-block; color: #ffffff; text-decoration: none; font-size: clamp(44px, 6.4vw, 88px); font-weight: 700; letter-spacing: -0.05em; line-height: 1")}>22 21 68 14</a>
-<div style={css("margin-top: 28px; display: flex; flex-wrap: wrap; gap: 10px")}>
+<p style={css("margin: 0 0 12px; font-size: 14px; font-weight: 600; color: #C6E97A")}>Kontakt</p>
+<h2 style={css("margin: 0 0 14px; font-size: clamp(30px, 3.6vw, 50px); line-height: 1.02; font-weight: 700; letter-spacing: -0.045em; color: #ffffff")}>Står du med noget, der driller?</h2>
+<p style={css("margin: 0 0 24px; font-size: 17px; color: #B8C3D3; max-width: 28em")}>Ring eller send en sms, så finder vi en tid, der passer. Tager jeg ikke telefonen, ringer jeg tilbage.</p>
+<a href="tel:+4522216814" className="m-btn" style={css("display: inline-block; color: #ffffff; text-decoration: none; font-size: clamp(40px, 5.4vw, 76px); font-weight: 700; letter-spacing: -0.05em; line-height: 1")}>22 21 68 14</a>
+<div style={css("margin-top: 22px; display: flex; flex-wrap: wrap; gap: 10px")}>
 <a href="sms:+4522216814" className="m-btn" style={css("display: inline-flex; align-items: center; gap: 8px; background: #C6E97A; color: #0D1B2A; text-decoration: none; font-weight: 600; font-size: 16px; padding: 13px 22px; border-radius: 999px; min-height: 48px; box-sizing: border-box")}>Send en sms</a>
 <a href="mailto:kontakt@hverdagshjaelpogit.dk" className="m-btn" style={css("display: inline-flex; align-items: center; gap: 8px; background: rgba(255,255,255,0.10); color: #ffffff; text-decoration: none; font-weight: 600; font-size: 16px; padding: 13px 22px; border-radius: 999px; min-height: 48px; box-sizing: border-box; overflow-wrap: anywhere")}>kontakt@hverdagshjaelpogit.dk</a>
 </div>
 </div>
 
-<div style={css(`grid-column: ${v.sp.contactForm}; background: #ffffff; color: #0D1B2A; border-radius: 28px; padding: 28px; box-sizing: border-box`)}>
+<div style={css(`grid-column: ${v.sp.contactForm}; background: #ffffff; color: #0D1B2A; border-radius: 24px; padding: ${v.formPad}; box-sizing: border-box`)}>
 {v.notSent && (<>
-<form onSubmit={v.submit} style={css("display: flex; flex-direction: column; gap: 16px")}>
-<div>
-<h3 style={css("margin: 0 0 4px; font-size: 22px; font-weight: 700; letter-spacing: -0.03em")}>Bliv ringet op</h3>
-<p style={css("margin: 0; font-size: 15px; color: #4A5462")}>Udfyld formularen, så ringer jeg dig op.</p>
-</div>
+<form onSubmit={v.submit} style={css("display: flex; flex-direction: column; gap: 10px")}>
+<h3 style={css("margin: 0; font-size: 22px; font-weight: 700; letter-spacing: -0.03em")}>Bliv ringet op</h3>
 <fieldset style={css("border: 0; margin: 0; padding: 0")}>
-<legend style={css("font-size: 15px; font-weight: 600; margin-bottom: 10px; padding: 0")}>Hvad skal du have hjælp til?</legend>
+<legend style={css("font-size: 15px; font-weight: 600; margin-bottom: 8px; padding: 0")}>Hvad skal du have hjælp til?</legend>
 <div style={css("display: flex; flex-wrap: wrap; gap: 8px")}>
 {v.chips.map((c, i_) => (<React.Fragment key={i_}>
 <button type="button" onClick={c.pick} aria-pressed={c.pressed} className="m-btn" style={css(c.style)}>{c.label}</button>
 </React.Fragment>))}
 </div>
 </fieldset>
-<div style={css("display: grid; grid-template-columns: repeat(auto-fit, minmax(170px, 1fr)); gap: 12px")}>
-<div style={css("display: flex; flex-direction: column; gap: 6px")}>
+<div style={css("display: grid; grid-template-columns: repeat(auto-fit, minmax(130px, 1fr)); gap: 12px")}>
+<div style={css("display: flex; flex-direction: column; gap: 4px")}>
 <label htmlFor="m-navn" style={css("font-size: 15px; font-weight: 600")}>Navn</label>
-<input id="m-navn" name="navn" type="text" autoComplete="name" style={css("font-size: 17px; padding: 12px 16px; border-radius: 14px; border: 1px solid #D5DAD2; background: #F7F8F6; min-height: 50px; box-sizing: border-box")} />
+<input id="m-navn" name="navn" type="text" autoComplete="name" style={css("font-size: 17px; padding: 10px 14px; border-radius: 14px; border: 1px solid #D5DAD2; background: #F7F8F6; min-height: 46px; box-sizing: border-box")} />
 </div>
-<div style={css("display: flex; flex-direction: column; gap: 6px")}>
+<div style={css("display: flex; flex-direction: column; gap: 4px")}>
 <label htmlFor="m-tlf" style={css("font-size: 15px; font-weight: 600")}>Telefon</label>
-<input id="m-tlf" name="tlf" type="tel" autoComplete="tel" style={css("font-size: 17px; padding: 12px 16px; border-radius: 14px; border: 1px solid #D5DAD2; background: #F7F8F6; min-height: 50px; box-sizing: border-box")} />
+<input id="m-tlf" name="tlf" type="tel" autoComplete="tel" style={css("font-size: 17px; padding: 10px 14px; border-radius: 14px; border: 1px solid #D5DAD2; background: #F7F8F6; min-height: 46px; box-sizing: border-box")} />
 </div>
 </div>
-<div style={css("display: flex; flex-direction: column; gap: 6px")}>
+<div style={css("display: flex; flex-direction: column; gap: 4px")}>
 <label htmlFor="m-besked" style={css("font-size: 15px; font-weight: 600")}>Besked <span style={css("font-weight: 400; color: #4A5462")}>(valgfrit)</span></label>
-<textarea id="m-besked" name="besked" rows="3" style={css("font-size: 17px; padding: 12px 16px; border-radius: 14px; border: 1px solid #D5DAD2; background: #F7F8F6; resize: vertical; box-sizing: border-box")}></textarea>
+<textarea id="m-besked" name="besked" rows="2" style={css("font-size: 17px; padding: 10px 14px; border-radius: 14px; border: 1px solid #D5DAD2; background: #F7F8F6; resize: vertical; box-sizing: border-box")}></textarea>
 </div>
-<button type="submit" className="m-btn" style={css("background: #0D1B2A; color: #ffffff; border: 0; border-radius: 999px; font-size: 17px; font-weight: 600; padding: 16px 28px; min-height: 54px; cursor: pointer")}>Send besked</button>
-<p style={css("margin: 0; font-size: 13px; color: #4A5462")}>Jeg bruger kun dine oplysninger til at kontakte dig om din henvendelse. Læs mere i <a href="#top" onClick={v.showPrivacy} style={css("font-weight: 600")}>privatlivspolitikken</a>.</p>
+<button type="submit" className="m-btn" style={css("background: #0D1B2A; color: #ffffff; border: 0; border-radius: 999px; font-size: 17px; font-weight: 600; padding: 12px 28px; min-height: 46px; cursor: pointer")}>Send besked</button>
+<p style={css("margin: 0; font-size: 13px; color: #4A5462")}>Dine oplysninger bruges kun til at kontakte dig. Se <a href="#top" onClick={v.showPrivacy} style={css("font-weight: 600")}>privatlivspolitikken</a>.</p>
 </form>
 </>)}
 {v.sent && (<>
@@ -281,10 +281,10 @@ Component.prototype.render = function () {
 </section>
 
 {/* LØBEBÅND */}
-<div aria-hidden="true" style={css("overflow: hidden; padding: 22px 0; margin: 16px 0 0; background: #0D1B2A")}>
+<div aria-hidden="true" style={css("overflow: hidden; padding: 16px 0; margin: 12px 0 0; background: #0D1B2A")}>
 <div className="m-track" style={css("display: flex; width: max-content; gap: 0")}>
 {v.ticker.map((t, i_) => (<React.Fragment key={i_}>
-<span style={css("display: inline-flex; align-items: center; gap: 28px; padding-right: 28px; font-size: clamp(22px, 2.6vw, 32px); font-weight: 600; letter-spacing: -0.03em; color: #ffffff; white-space: nowrap")}>{t}<span style={css("width: 10px; height: 10px; border-radius: 999px; background: #C6E97A; display: inline-block")}></span></span>
+<span style={css("display: inline-flex; align-items: center; gap: 28px; padding-right: 28px; font-size: clamp(20px, 2.2vw, 28px); font-weight: 600; letter-spacing: -0.03em; color: #ffffff; white-space: nowrap")}>{t}<span style={css("width: 10px; height: 10px; border-radius: 999px; background: #C6E97A; display: inline-block")}></span></span>
 </React.Fragment>))}
 </div>
 </div>
@@ -373,7 +373,7 @@ Component.prototype.render = function () {
 </div>
 </footer>
 
-{v.isCompact && (<>
+{v.isPhone && (<>
 <div style={css("height: 84px")}></div>
 <div style={css("position: fixed; left: 12px; right: 12px; bottom: 12px; z-index: 30; background: rgba(13,27,42,0.94); backdrop-filter: blur(12px); border-radius: 999px; padding: 6px; display: flex; gap: 6px; box-shadow: 0 12px 30px rgba(13,27,42,0.25)")}>
 <a href="tel:+4522216814" style={css("flex: 1 1 0; display: inline-flex; align-items: center; justify-content: center; gap: 8px; background: #C6E97A; color: #0D1B2A; text-decoration: none; font-weight: 600; font-size: 16px; border-radius: 999px; min-height: 52px")}>
