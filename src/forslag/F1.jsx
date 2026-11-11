@@ -185,10 +185,6 @@ Component.prototype.render = function () {
 
 <div style={css(`grid-column: ${v.sp.head}; background: #ffffff; border-radius: 32px; padding: ${v.heroPad}; display: flex; flex-direction: column; justify-content: space-between; gap: 40px; min-height: ${v.heroMin}; box-sizing: border-box`)}>
 <div>
-<p style={css("margin: 0 0 28px; display: inline-flex; align-items: center; gap: 10px; background: #F2F4F1; border-radius: 999px; padding: 8px 16px 8px 12px; font-size: 14px; font-weight: 600; color: #2C3A2A")}>
-<span style={css("width: 8px; height: 8px; border-radius: 999px; background: #4E8A22; box-shadow: 0 0 0 4px rgba(78,138,34,0.18)")}></span>
-IT &amp; hjemmeservice i Kerteminde og omegn
-</p>
 <h1 style={css("margin: 0; font-size: clamp(42px, 6.2vw, 86px); line-height: 0.98; font-weight: 700; letter-spacing: -0.05em; color: #0D1B2A")}>Hjælp til det digitale <span style={css("color: #3F6E1C")}>og det praktiske.</span></h1>
 </div>
 <div style={css("display: flex; flex-wrap: wrap; gap: 24px 40px; align-items: flex-end; justify-content: space-between")}>
