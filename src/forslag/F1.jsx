@@ -129,7 +129,7 @@ class Component extends DCLogic {
       contactGap: isDesktop ? '48px' : (s.w >= 720 ? '24px' : '0px'),
       isPhone,
       showInlinePrice: s.w >= 720,
-      h1Size: isDesktop ? 'clamp(44px, 5.2vw, 72px)' : (isPhone ? '36px' : '52px'),
+      h1Size: isDesktop ? 'clamp(40px, 4.8vw, 64px)' : (isPhone ? '36px' : '52px'),
       h1Wrap: isPhone ? 'normal' : 'nowrap',
       omPad: isPhone ? '28px 24px' : '40px',
       nav,
