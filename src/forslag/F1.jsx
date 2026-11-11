@@ -50,7 +50,7 @@ class Component extends DCLogic {
     const isDesktop = s.w >= 1000;
     const isPhone = s.w < 640;
     const sp = isDesktop
-      ? { head: 'span 7', photo: 'span 5', small: 'span 3', panel: 'span 4', items: 'span 8', faqHead: 'span 4', faqList: 'span 8', contactText: 'span 6', contactForm: 'span 6', omText: 'span 7', omSide: 'span 5' }
+      ? { head: 'span 7', photo: 'span 5', small: 'span 3', panel: 'span 4', items: 'span 8', faqHead: 'span 4', faqList: 'span 8', contactText: 'span 6', contactForm: 'span 6', omText: 'span 12', omSide: 'span 12' }
       : { head: 'span 12', photo: 'span 12', small: 'span 6', panel: 'span 12', items: 'span 12', faqHead: 'span 12', faqList: 'span 12', contactText: s.w >= 720 ? 'span 6' : 'span 12', contactForm: s.w >= 720 ? 'span 6' : 'span 12', omText: 'span 12', omSide: 'span 12' };
     const groups = {
       it: {
@@ -232,30 +232,9 @@ Component.prototype.render = function () {
 <div style={css(`grid-column: ${v.sp.omText}; background: #ffffff; border-radius: 32px; padding: ${v.omPad}; box-sizing: border-box`)}>
 <p style={css("margin: 0 0 14px; font-size: 14px; font-weight: 600; color: #3F6E1C")}>Om Søren</p>
 <h2 style={css("margin: 0 0 22px; font-size: clamp(28px, 3vw, 40px); line-height: 1.08; font-weight: 700; letter-spacing: -0.04em")}>En lokal hjælper, der har tid til dig</h2>
-<p style={css("margin: 0 0 16px; font-size: 18px; color: #3C4654")}>Hej, jeg hedder Søren. Jeg bor i Kerteminde og hjælper folk i byen og omegnen med IT og praktiske opgaver i hjemmet.</p>
-<p style={css("margin: 0 0 16px; font-size: 18px; color: #3C4654")}>Det kan være en computer, der er blevet langsom, en ny telefon, der skal sættes op, eller wifi, der falder ud i stuen. Det kan også være en reol, der står i en papkasse, en lampe, der skal op at hænge, eller en tur til købmanden, hvis det er svært selv at komme ud.</p>
-<p style={css("margin: 0; font-size: 18px; color: #3C4654")}>Jeg kommer hjem til dig og tager mig god tid. Jeg forklarer undervejs og uden fagord, så du selv kan næste gang, hvis du har lyst.</p>
-</div>
-
-<div style={css(`grid-column: ${v.sp.omSide}; display: flex; flex-direction: column; gap: 14px`)}>
-<div style={css("background: #0D1B2A; color: #ffffff; border-radius: 28px; padding: 26px 28px")}>
-<p style={css("margin: 0 0 16px; font-size: 14px; font-weight: 600; color: #C6E97A")}>Det kan du regne med</p>
-<ul style={css("list-style: none; margin: 0; padding: 0; display: flex; flex-direction: column; gap: 12px; font-size: 16px")}>
-<li style={css("display: flex; gap: 12px; align-items: flex-start")}><svg aria-hidden="true" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#C6E97A" strokeWidth="2.6" strokeLinecap="round" strokeLinejoin="round" style={css("flex: 0 0 auto; margin-top: 2px")}><path d="M5 12.5l4.5 4.5L19 7.5"/></svg><span><strong>Roligt tempo.</strong> Jeg forklarer, så du forstår, hvad der er lavet.</span></li>
-<li style={css("display: flex; gap: 12px; align-items: flex-start")}><svg aria-hidden="true" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#C6E97A" strokeWidth="2.6" strokeLinecap="round" strokeLinejoin="round" style={css("flex: 0 0 auto; margin-top: 2px")}><path d="M5 12.5l4.5 4.5L19 7.5"/></svg><span><strong>Fast timepris.</strong> Du kender prisen, inden jeg går i gang.</span></li>
-<li style={css("display: flex; gap: 12px; align-items: flex-start")}><svg aria-hidden="true" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#C6E97A" strokeWidth="2.6" strokeLinecap="round" strokeLinejoin="round" style={css("flex: 0 0 auto; margin-top: 2px")}><path d="M5 12.5l4.5 4.5L19 7.5"/></svg><span><strong>Ærlige svar.</strong> Kan jeg ikke løse opgaven, siger jeg det med det samme.</span></li>
-<li style={css("display: flex; gap: 12px; align-items: flex-start")}><svg aria-hidden="true" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#C6E97A" strokeWidth="2.6" strokeLinecap="round" strokeLinejoin="round" style={css("flex: 0 0 auto; margin-top: 2px")}><path d="M5 12.5l4.5 4.5L19 7.5"/></svg><span><strong>Direkte kontakt.</strong> Du taler altid med mig, ikke et kundecenter.</span></li>
-</ul>
-</div>
-<div style={css("background: #DDEBC9; color: #0D1B2A; border-radius: 28px; padding: 26px 28px")}>
-<p style={css("margin: 0 0 14px; font-size: 14px; font-weight: 600; color: #2F5715")}>Praktisk</p>
-<dl style={css("margin: 0; display: grid; grid-template-columns: auto 1fr; gap: 10px 16px; font-size: 16px")}>
-<dt style={css("font-weight: 700")}>Område</dt><dd style={css("margin: 0")}>Kerteminde og omegn. Længere væk efter aftale.</dd>
-<dt style={css("font-weight: 700")}>Pris</dt><dd style={css("margin: 0")}>350 kr. i timen. Privat inkl. moms, erhverv ekskl. moms.</dd>
-<dt style={css("font-weight: 700")}>Betaling</dt><dd style={css("margin: 0")}>MobilePay eller faktura.</dd>
-<dt style={css("font-weight: 700")}>Kunder</dt><dd style={css("margin: 0")}>Private og små virksomheder.</dd>
-</dl>
-</div>
+<p style={css("margin: 0 0 16px; font-size: 18px; color: #3C4654; max-width: 46em")}>Hej, jeg hedder Søren. Jeg bor i Kerteminde og hjælper folk i byen og omegnen med IT og praktiske opgaver i hjemmet.</p>
+<p style={css("margin: 0 0 16px; font-size: 18px; color: #3C4654; max-width: 46em")}>Det kan være en computer, der er blevet langsom, en ny telefon, der skal sættes op, eller wifi, der falder ud i stuen. Det kan også være en reol, der står i en papkasse, en lampe, der skal op at hænge, eller en tur til købmanden, hvis det er svært selv at komme ud.</p>
+<p style={css("margin: 0; font-size: 18px; color: #3C4654; max-width: 46em")}>Jeg kommer hjem til dig og tager mig god tid. Jeg forklarer undervejs og uden fagord, så du selv kan næste gang, hvis du har lyst.</p>
 </div>
 
 <div style={css(`grid-column: span 12; background: #ffffff; border-radius: 28px; padding: ${v.omPad}; box-sizing: border-box`)}>
