@@ -85,7 +85,7 @@ class Component extends DCLogic {
       { q: 'Hvad koster det?', a: 'IT-hjælp koster 350 kr. pr. time, og hjemmeservice koster 500 kr. pr. time. Privatpriser er inkl. moms, og for erhverv lægges moms oveni. Større opgaver får en samlet pris på forhånd.' },
       { q: 'Hjælper du også virksomheder?', a: 'Ja. Jeg hjælper også små virksomheder med computere, wifi og telefoner.' },
       { q: 'Jeg er ikke god til teknik. Er det et problem?', a: 'Slet ikke. Det er netop derfor, jeg er her. Jeg forklarer i et roligt tempo og uden fagord.' },
-      { q: 'Hvordan betaler jeg?', a: 'Du kan betale med MobilePay, kontant eller på faktura.' }
+      { q: 'Hvordan betaler jeg?', a: 'Du kan betale med MobilePay eller på faktura.' }
     ];
     const iconBase = 'flex: 0 0 auto; width: 36px; height: 36px; border-radius: 999px; display: flex; align-items: center; justify-content: center; transition: transform .2s ease, background-color .2s ease; ';
     const faqs = faqRaw.map((f, i) => {
@@ -230,9 +230,9 @@ Component.prototype.render = function () {
 <div style={css(`grid-column: ${v.sp.omText}; background: #ffffff; border-radius: 32px; padding: ${v.omPad}; box-sizing: border-box`)}>
 <p style={css("margin: 0 0 14px; font-size: 14px; font-weight: 600; color: #3F6E1C")}>Om Søren</p>
 <h2 style={css("margin: 0 0 22px; font-size: clamp(28px, 3vw, 40px); line-height: 1.08; font-weight: 700; letter-spacing: -0.04em")}>En lokal hjælper, der har tid til dig</h2>
-<p style={css("margin: 0 0 16px; font-size: 18px; color: #3C4654")}>Hej, jeg hedder Søren. Jeg bor i Kerteminde og hjælper folk i byen og omegnen med de ting i hverdagen, der er lettere, når man er to om dem.</p>
+<p style={css("margin: 0 0 16px; font-size: 18px; color: #3C4654")}>Hej, jeg hedder Søren. Jeg bor i Kerteminde og hjælper folk i byen og omegnen med IT og praktiske opgaver i hjemmet.</p>
 <p style={css("margin: 0 0 16px; font-size: 18px; color: #3C4654")}>Det kan være en computer, der er blevet langsom, en ny telefon, der skal sættes op, eller wifi, der falder ud i stuen. Det kan også være en reol, der står i en papkasse, en lampe, der skal op at hænge, eller en tur til købmanden, hvis det er svært selv at komme ud.</p>
-<p style={css("margin: 0; font-size: 18px; color: #3C4654")}>Jeg kommer hjem til dig og tager mig god tid. Jeg forklarer undervejs og uden fagord, så du selv kan næste gang, hvis du har lyst. Og der er ingen dumme spørgsmål.</p>
+<p style={css("margin: 0; font-size: 18px; color: #3C4654")}>Jeg kommer hjem til dig og tager mig god tid. Jeg forklarer undervejs og uden fagord, så du selv kan næste gang, hvis du har lyst.</p>
 </div>
 
 <div style={css(`grid-column: ${v.sp.omSide}; display: flex; flex-direction: column; gap: 14px`)}>
@@ -250,7 +250,7 @@ Component.prototype.render = function () {
 <dl style={css("margin: 0; display: grid; grid-template-columns: auto 1fr; gap: 10px 16px; font-size: 16px")}>
 <dt style={css("font-weight: 700")}>Område</dt><dd style={css("margin: 0")}>Kerteminde og omegn. Længere væk efter aftale.</dd>
 <dt style={css("font-weight: 700")}>Pris</dt><dd style={css("margin: 0")}>350 kr. i timen. Privat inkl. moms, erhverv ekskl. moms.</dd>
-<dt style={css("font-weight: 700")}>Betaling</dt><dd style={css("margin: 0")}>MobilePay, kontant eller faktura.</dd>
+<dt style={css("font-weight: 700")}>Betaling</dt><dd style={css("margin: 0")}>MobilePay eller faktura.</dd>
 <dt style={css("font-weight: 700")}>Kunder</dt><dd style={css("margin: 0")}>Private og små virksomheder.</dd>
 </dl>
 </div>
