@@ -428,7 +428,7 @@ Component.prototype.render = function () {
 <div style={css("max-width: 1240px; margin: 0 auto; display: flex; flex-wrap: wrap; gap: 24px 40px; justify-content: space-between; align-items: flex-end")}>
 <div style={css("display: flex; align-items: center; gap: 12px")}>
 <img src="/img/mark.png" alt="" style={css("height: 40px; width: auto; display: block")} />
-<span style={css("line-height: 1.35")}><span style={css("display: block; font-weight: 700; font-size: 16px; letter-spacing: -0.02em")}>Sørens hverdagshjælp</span><span style={css("font-size: 14px; color: #4A5462")}>IT &amp; hjemmeservice · Kerteminde og omegn · CVR 46656814</span></span>
+<span style={css("line-height: 1.35")}><span style={css("font-size: 14px; color: #4A5462")}>IT &amp; hjemmeservice · Kerteminde og omegn · CVR 46656814</span></span>
 </div>
 <div style={css("display: flex; flex-wrap: wrap; gap: 4px 8px; font-size: 14px")}>
 <a href="tel:+4522216814" className="m-link" style={css("color: #3C4654; text-decoration: none; padding: 8px 12px; border-radius: 999px")}>22 21 68 14</a>
