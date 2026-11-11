@@ -224,38 +224,6 @@ Component.prototype.render = function () {
 </div>
 </section>
 
-{/* OM SØREN: TEKST */}
-<section style={css("padding: 0 16px 16px")}>
-<div style={css("max-width: 1240px; margin: 0 auto; display: grid; grid-template-columns: repeat(12, minmax(0, 1fr)); gap: 14px")}>
-
-<div style={css(`grid-column: ${v.sp.omText}; background: #ffffff; border-radius: 32px; padding: ${v.omPad}; box-sizing: border-box`)}>
-<h2 style={css("margin: 0 0 22px; font-size: clamp(28px, 3vw, 40px); line-height: 1.08; font-weight: 700; letter-spacing: -0.04em")}>En lokal hjælper, der har tid til dig</h2>
-<p style={css("margin: 0 0 16px; font-size: 18px; color: #3C4654; max-width: 46em")}>Hej, jeg hedder Søren. Jeg bor i Kerteminde og hjælper folk i byen og omegnen med IT og praktiske opgaver i hjemmet.</p>
-<p style={css("margin: 0 0 16px; font-size: 18px; color: #3C4654; max-width: 46em")}>Det kan være en computer, der er blevet langsom, en ny telefon, der skal sættes op, eller wifi, der falder ud i stuen. Det kan også være en reol, der står i en papkasse, eller en lampe, der skal op at hænge.</p>
-<p style={css("margin: 0; font-size: 18px; color: #3C4654; max-width: 46em")}>Jeg kommer hjem til dig og tager mig god tid. Jeg forklarer undervejs og uden fagord, så du selv kan næste gang, hvis du har lyst.</p>
-</div>
-
-<div style={css(`grid-column: span 12; background: #ffffff; border-radius: 28px; padding: ${v.omPad}; box-sizing: border-box`)}>
-<div style={css("display: grid; grid-template-columns: repeat(auto-fit, minmax(260px, 1fr)); gap: 24px 40px")}>
-<div>
-<h3 style={css("margin: 0 0 10px; font-size: 21px; font-weight: 700; letter-spacing: -0.02em")}>IT-hjælp</h3>
-<div style={css("display: flex; flex-wrap: wrap; gap: 8px")}><span style={css("font-size: 15px; font-weight: 500; background: #EAF0F7; color: #1E3A64; border-radius: 999px; padding: 7px 14px")}>Computer og ny pc</span><span style={css("font-size: 15px; font-weight: 500; background: #EAF0F7; color: #1E3A64; border-radius: 999px; padding: 7px 14px")}>Wifi og router</span><span style={css("font-size: 15px; font-weight: 500; background: #EAF0F7; color: #1E3A64; border-radius: 999px; padding: 7px 14px")}>Printer og mail</span><span style={css("font-size: 15px; font-weight: 500; background: #EAF0F7; color: #1E3A64; border-radius: 999px; padding: 7px 14px")}>iPhone og iPad</span><span style={css("font-size: 15px; font-weight: 500; background: #EAF0F7; color: #1E3A64; border-radius: 999px; padding: 7px 14px")}>MitID, apps og MobilePay</span><span style={css("font-size: 15px; font-weight: 500; background: #EAF0F7; color: #1E3A64; border-radius: 999px; padding: 7px 14px")}>Billeder og videoopkald</span></div>
-</div>
-<div>
-<h3 style={css("margin: 0 0 10px; font-size: 21px; font-weight: 700; letter-spacing: -0.02em")}>Hjemmeservice</h3>
-<div style={css("display: flex; flex-wrap: wrap; gap: 8px")}><span style={css("font-size: 15px; font-weight: 500; background: #EEF4E7; color: #2F5715; border-radius: 999px; padding: 7px 14px")}>Samling af møbler</span><span style={css("font-size: 15px; font-weight: 500; background: #EEF4E7; color: #2F5715; border-radius: 999px; padding: 7px 14px")}>Ophæng af hylder og lamper</span><span style={css("font-size: 15px; font-weight: 500; background: #EEF4E7; color: #2F5715; border-radius: 999px; padding: 7px 14px")}>Gardiner og billeder</span><span style={css("font-size: 15px; font-weight: 500; background: #EEF4E7; color: #2F5715; border-radius: 999px; padding: 7px 14px")}>Afhentning af pakker</span></div>
-</div>
-</div>
-<div style={css("margin-top: 28px; padding-top: 24px; border-top: 1px solid #E2E6E0; display: flex; flex-wrap: wrap; gap: 14px 28px; align-items: center; justify-content: space-between")}>
-<p style={css("margin: 0; font-size: 17px; color: #3C4654")}><strong style={css("color: #0D1B2A")}>Står du med noget, der driller?</strong> Ring eller send en sms, så finder vi en tid.</p>
-<a href="#kontakt" onClick={v.nav.kontakt} className="m-btn" style={css("display: inline-flex; align-items: center; gap: 10px; background: #0D1B2A; color: #ffffff; text-decoration: none; font-weight: 600; font-size: 16px; padding: 14px 22px; border-radius: 999px; min-height: 50px; box-sizing: border-box")}>Kontakt Søren
-<svg className="m-arrow" aria-hidden="true" width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.2" strokeLinecap="round" strokeLinejoin="round"><path d="M5 12h14M13 6l6 6-6 6"/></svg>
-</a>
-</div>
-</div>
-
-</div>
-</section>
 
 </>)}
 
