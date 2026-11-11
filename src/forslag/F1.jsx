@@ -130,6 +130,8 @@ class Component extends DCLogic {
       contactGap: isDesktop ? '48px' : (s.w >= 720 ? '24px' : '0px'),
       isPhone,
       showInlinePrice: s.w >= 720,
+      h1Size: isDesktop ? 'clamp(44px, 5.2vw, 72px)' : (isPhone ? '36px' : '52px'),
+      h1Wrap: isPhone ? 'normal' : 'nowrap',
       omPad: isPhone ? '28px 24px' : '40px',
       nav,
       group: isIt ? groups.it : groups.home,
@@ -201,7 +203,7 @@ Component.prototype.render = function () {
 
 <div style={css(`grid-column: ${v.sp.head}; background: #ffffff; border-radius: 32px; padding: ${v.heroPad}; display: flex; flex-direction: column; justify-content: center; gap: 40px; min-height: ${v.heroMin}; box-sizing: border-box`)}>
 <div>
-<h1 style={css("margin: 0; font-size: clamp(42px, 6.2vw, 86px); line-height: 0.98; font-weight: 700; letter-spacing: -0.05em; color: #0D1B2A")}>Hjælp til det digitale <span style={css("color: #3F6E1C")}>og det praktiske.</span></h1>
+<h1 style={css(`margin: 0; font-size: ${v.h1Size}; line-height: 1.02; font-weight: 700; letter-spacing: -0.05em; color: #0D1B2A`)}><span style={css(`display: block; white-space: ${v.h1Wrap}`)}>Hjælp til det digitale</span><span style={css(`display: block; white-space: ${v.h1Wrap}; color: #3F6E1C`)}>og det praktiske.</span></h1>
 </div>
 </div>
 
