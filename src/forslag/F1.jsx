@@ -202,7 +202,7 @@ Component.prototype.render = function () {
 
 <div style={css(`grid-column: ${v.sp.head}; background: #ffffff; border-radius: 32px; padding: ${v.heroPad}; display: flex; flex-direction: column; justify-content: center; gap: 40px; min-height: ${v.heroMin}; box-sizing: border-box`)}>
 <div>
-<h1 style={css(`margin: 0; font-size: ${v.h1Size}; line-height: 1.02; font-weight: 700; letter-spacing: -0.05em; color: #0D1B2A`)}><span style={css(`display: block; white-space: ${v.h1Wrap}`)}>Hjælp til det digitale</span><span style={css(`display: block; white-space: ${v.h1Wrap}; color: #3F6E1C`)}>og det praktiske.</span></h1>
+<h1 style={css(`margin: 0; font-size: ${v.h1Size}; line-height: 1.02; font-weight: 700; letter-spacing: -0.05em; color: #0D1B2A`)}><span style={css(`display: block; white-space: ${v.h1Wrap}`)}>Hjælp til det praktiske</span><span style={css(`display: block; white-space: ${v.h1Wrap}; color: #3F6E1C`)}>og det digitale.</span></h1>
 </div>
 </div>
 
