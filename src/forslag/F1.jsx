@@ -129,6 +129,7 @@ class Component extends DCLogic {
       contactGap: isDesktop ? '48px' : (s.w >= 720 ? '24px' : '0px'),
       isPhone,
       showInlinePrice: s.w >= 720,
+      pageZoom: s.w > 1560 ? (s.w / 1560).toFixed(3) : '1',
       h1Size: isDesktop ? 'clamp(40px, 4.8vw, 64px)' : (isPhone ? '36px' : '52px'),
       h1Wrap: isPhone ? 'normal' : 'nowrap',
       omPad: isPhone ? '28px 24px' : '40px',
@@ -159,7 +160,7 @@ Component.prototype.render = function () {
 <>
 <link rel="stylesheet" href={FONTS} />
 <style>{PAGE_CSS}</style>
-<div style={css("font-family: 'Geist', system-ui, sans-serif; color: #0D1B2A; background: #F2F4F1; font-size: 17px; line-height: 1.6")}>
+<div style={css(`font-family: 'Geist', system-ui, sans-serif; color: #0D1B2A; background: #F2F4F1; font-size: 17px; line-height: 1.6; zoom: ${v.pageZoom}`)}>
 
 {/* SVÆVENDE MENU */}
 <header style={css("position: sticky; top: 0; z-index: 30; padding: 14px 16px 0")}>
