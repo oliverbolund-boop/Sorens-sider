@@ -18,7 +18,7 @@ input:focus-visible,textarea:focus-visible,button:focus-visible,a:focus-visible{
 .m-btn:hover .m-arrow{transform:translateX(3px)}
 @keyframes m-marquee{from{transform:translateX(0)}to{transform:translateX(-50%)}}
 .m-track{animation:m-marquee 38s linear infinite}
-@media (prefers-reduced-motion: reduce){html{scroll-behavior:auto}.m-track{animation:none}.m-btn,.m-card,.m-link,.m-arrow{transition:none}.m-btn:hover,.m-card:hover{transform:none}}`;
+@media (prefers-reduced-motion: reduce){html{scroll-behavior:auto}.m-track{animation:none;width:auto !important;flex-wrap:wrap;justify-content:center;row-gap:6px;padding:0 16px}.m-track>span:nth-child(n+7){display:none !important}.m-track>span:nth-child(6)>span{display:none !important}.m-btn,.m-card,.m-link,.m-arrow{transition:none}.m-btn:hover,.m-card:hover{transform:none}}`;
 
 class Component extends DCLogic {
   constructor(props) {
